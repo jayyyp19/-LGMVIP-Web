@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-list</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6ace2e8b93.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main">
+        <header class="header">Todo-list</header>
+        <div class="input-field">
+            <input type="text" placeholder="Add a new todo" id="inputField" required>
+            <button id="addToDo"><i class="fas fa-plus"></i></button>
+        </div>
+        <ul id="todolist" >
+            <li class="todocontainer"> <b> If u want to delete todo individually,then <br> double click on it..</b></li> 
+        </ul>
+        <div class="footer">
+            <span class="footerspan">You have <span id="number"></span> pending task </span>
+            <button id="ClearAll">Clear All </button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
