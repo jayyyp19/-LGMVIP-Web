@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Student Enrollment Form</title>
+    <style>
+    table{
+        border: 0.1px solid black;
+    }
+      .linebottom{
+  column-count: 3;
+  /* border-bottom: 1px solid black; */
+}
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><p>Student Enrollment Form </p></nav>
+    <div class="form_and_data">
+        <div class="form">
+            <form action="#">
+                <label for="name">Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <input type="text" id="Name" ><br><br>
+
+                <label for="email">Email  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <input type="text" id="email"><br><br>
+
+                <label for="website">Website&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <input type="text" id="website"><br><br>
+                
+                <!-- gender section -->
+                <div class="gender">
+                <label for="gender" >Gender &nbsp; &nbsp; &nbsp; &nbsp;</label><br><br>
+                <input type="radio" name="genders" id="Male" value="Male">Male
+                <input type="radio" id="Female" name="genders" value="Female">Female<br><br>
+                </div>
+                
+                <!-- skills section -->
+                <div class="skills">
+                <label for="skills">Skills &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label><br><br>
+
+                <input type="checkbox" class="skill" id="html" value="HTML">HTML
+
+                <br><input type="checkbox" class="skill"id="css" value="CSS">CSS
+
+                <br><input type="checkbox" class="skill" id="javascript" value="Javascript">Javascript 
+
+                <br><input type="checkbox" class="skill" id="c/c++" value="C/C++">C/C++ 
+
+                <br><input type="checkbox" class="skill" id="python" value="Python">Python
+
+                <br><input type="checkbox" class="skill" id="java" value="Java">Java <br><br><br>
+                </div>
+
+                <!-- button section -->
+                <input type="button" class="button" name="button" id="btn" value="Submit" onclick="AddRow()">
+                <button class="button">Clear</button>
+
+
+            </form>
+        </div>
+        <div class="data">
+            <h2>Enrolled Student</h2>
+            <table border="1" id="show">
+                <thead>
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Website</th>
+                        <th>Gender</th>
+                        <th class="extend">Skills</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script >
+        var list1 = [];
+		var list2 = [];
+		var list3 = [];
+		var list4 = [];
+        var list5 = [];
+
+		var n = 1;//row no
+		var x = 0;//column no
+
+        let btnshow = document.querySelector('btn');
+        let radio = document.querySelector('gender').value;
+
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+			list1[x] = document.getElementById("Name").value;
+			list2[x] = document.getElementById("email").value;
+			list3[x] = document.getElementById("website").value;
+            list4[x] = document.querySelector('input[name="genders"]:checked').value;
+            
+            var list;
+            if(document.getElementById('html').checked ==true){
+                list5[x] = document.getElementById('html').value ;
+            }
+            if(document.getElementById('css').checked ==true){
+                list5[x] = list5[x]+","+document.getElementById('css').value;
+            }
+            if(document.getElementById('javascript').checked ==true){
+                list5[x] =  list5[x]+","+document.getElementById('javascript').value ;
+            }
+            if(document.getElementById('c/c++').checked ==true){
+                list5[x] =  list5[x]+","+document.getElementById('c/c++').value ;
+            }
+            if(document.getElementById('java').checked ==true){
+                list5[x] = list5[x]+","+document.getElementById('java').value ;
+            }
+            if(document.getElementById('python').checked ==true){
+                list5[x] = list5[x]+","+document.getElementById('python').value ;
+            }
+
+            var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+			var cel4 = NewRow.insertCell(3);
+			var cel5 = NewRow.insertCell(4);
+            var cel6 = NewRow.insertCell(5);
+
+			cel1.innerHTML = n;
+			cel2.innerHTML = list1[x];
+			cel3.innerHTML = list2[x];
+			cel4.innerHTML = list3[x];
+            cel5.innerHTML = list4[x];
+            cel6.innerHTML = list5[x];
+
+			n++;
+			x++;
+		}
+    </script>
+</body>
+</html>
