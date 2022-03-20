@@ -71,3 +71,16 @@ th,td {
     border: 1px solid black;
     padding: 5px;
   }
+@media  screen and (max-width:1020px) {
+    .form_and_data{
+        display: block;
+    }
+    .form{
+        margin-bottom: 90px;
+        margin-left: 20%;
+    }
+    .data{
+        margin-left: -20px;
+        margin-right: 45px;
+    }
+}
